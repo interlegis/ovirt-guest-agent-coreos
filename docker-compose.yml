@@ -1,0 +1,17 @@
+
+ovirt-agent:
+  build: . 
+  restart: always
+  privileged: true
+  net: host
+  tty: true
+  cap_add: 
+    - ALL
+  volumes:
+    - "/dev/virtio-ports:/dev/virtio-ports"
+    - "/etc/os-release:/etc/os-release:ro"
+    - "/dev:/dev"
+    - "/proc:/hostproc"
+    - "/run/systemd:/run/systemd"
+    - "/var/log/ovirt-guest-agent:/var/log/ovirt-guest-agent"
+    - "/var/run/docker.sock:/var/run/docker.sock:ro"
