@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /etc/os-release
+echo $PRETTY_NAME > /etc/centos-release
 
 /usr/bin/python /usr/share/ovirt-guest-agent/ovirt-guest-agent.py &
 
